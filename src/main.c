@@ -34,10 +34,12 @@ int main(int argc, char const *argv[]) {
     // printf("cal Black U...\n");
     
     interp_fit(inp, out, interval);
+    /*
     printf("input Data: \n");
     Data_print(inp);
     printf("input range is %" PRIu32 "\n", inp->range);
     printf("output Data: \n");
+    */
     Data_print(out);
 
     #ifdef WINDOWS

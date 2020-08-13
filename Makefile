@@ -21,8 +21,8 @@ InterpFit_Debug.o: src/InterpFit.h src/InterpFit.h
 Windows: InterpFit_win.o tool_win.o src/main.c
 	$(WCC) -o bin/InterpFit_win.exe tool_win.o InterpFit_win.o src/main.c
 
-InterpFit_win.o: src/InterpFit.h src/InterpFit.c
-	$(WCC) -c src/InterpFit.c -o InterpFit_win.o
+InterpFit_win.o: src/interp.h src/interp.c
+	$(WCC) -c src/interp.c -o InterpFit_win.o
 
 tool_win.o: src/tool.h src/tool.c
 	$(WCC) -c src/tool.c -o tool_win.o
