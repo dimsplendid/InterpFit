@@ -3,7 +3,7 @@ CC=clang -Wall -DLINUX
 # use for windows binary compile
 WCC=i686-w64-mingw32-gcc --static -DWINDOWS
 
-all: tool.o InterpFit.o src/main.c
+all: tool.o Interp.o src/main.c
 	$(CC) -o bin/InterpFit tool.o Interp.o src/main.c
 
 Interp.o: src/Interp.h src/Interp.c

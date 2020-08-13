@@ -23,11 +23,15 @@ int Data_init(Data **self, const char *file_name) {
     if((data=(Datus *)calloc(sizeof(Datus), MAXDATASIZE)) == NULL) {
         exit(EXIT_FAILURE);
     }
-
+    printf("reading %s...\n", file_name);
     FILE *f = fopen(file_name, "r");
+    if(!f){
+        printf("Open File Fail...");
+        exit(EXIT_FAILURE);
+    }
 
     uint32_t counter = 0;
-    while(fscanf(f, "%lf %lf", \
+    while(fscanf(f, "%lf, %lf", \
            &data[counter].x, &data[counter].y) != EOF) {
         counter++;
     }
@@ -59,9 +63,14 @@ int Data_free(Data *self) {
 }
 
 void Data_print(Data *self) {
+    /*
     FILE *f = fopen("output.txt", "w");
     for(uint32_t i = 0; i < self->range; i++) {
-        fprintf(f, "%lf %lf", self->data[i].x, self->data[i].y);
+        fprintf(f, "%lf %lf\n", self->data[i].x, self->data[i].y);
     }
     fclose(f);
+    */
+    for(uint32_t i = 0; i < self->range; i++) {
+        printf("%lf %lf\n", self->data[i].x, self->data[i].y);
+    }
 }

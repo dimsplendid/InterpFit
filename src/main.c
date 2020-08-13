@@ -12,7 +12,7 @@
 
 int main(int argc, char const *argv[]) {
     // check command input
-    if (argc != 7) {
+    if (argc < 2) {
         printf("We need csv raw data and edge distance.\n");
         printf("./Interp [file_name] [interval (default=0.1)]\n");
         exit(EXIT_FAILURE);
@@ -34,14 +34,17 @@ int main(int argc, char const *argv[]) {
     // printf("cal Black U...\n");
     
     interp_fit(inp, out, interval);
-
+    printf("input Data: \n");
+    Data_print(inp);
+    printf("input range is %" PRIu32 "\n", inp->range);
+    printf("output Data: \n");
     Data_print(out);
 
     #ifdef WINDOWS
-    snprintf((char*)output_name, 80, "output\\%s_BlockAvg.csv",CCD->name);
+    
     #endif
     #ifdef LINUX
-    snprintf((char*)output_name, 80, "output/%s_BlockAvg.csv",CCD->name);
+    
     #endif
     
     // release memory
